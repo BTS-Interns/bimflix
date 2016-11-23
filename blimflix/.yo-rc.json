@@ -1,0 +1,11 @@
+{
+  "generator-angular-enterprise": {
+    "appName": "blimBlix",
+    "clientSideFolder": "client/",
+    "appSubFolder": "app/",
+    "directivePrefix": "",
+    "uirouter": false,
+    "swagger": false,
+    "bootstrap": true
+  }
+}
