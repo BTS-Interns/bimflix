@@ -26,7 +26,7 @@
     <![endif]-->
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -34,27 +34,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">BlimFlix</a>
+          <a class="navbar-brand blimflix-logo-link" href="#"><img class="blimflix-logo" src="/images/blimflix-logo.png" alt="" /></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
 
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#">Movies <span class="badge">30</span></a></li>
-            <li><a href="#">Seen <span class="badge">10</span></a></li>
-            <li><a href="#">Favorites <span class="badge">3</span></a></li>
-            <li><a href="#">Watchlist <span class="badge">15</span></a></li>
-            <li><a href="#">Log Out</a></li>
+            <li class="active nav-link-right"><a class="anchor-margin" href="#">Movies <span class="badge badge-color">30</span></a></li>
+            <li class="nav-link-right"><a class="anchor-margin" href="#">Seen <span class="badge badge-color">10</span></a></li>
+            <li class="nav-link-right"><a class="anchor-margin" href="#">Favorites <span class="badge badge-color">3</span></a></li>
+            <li class="nav-link-right"><a class="anchor-margin" href="#">Watchlist <span class="badge badge-color">15</span></a></li>
+            <li class="nav-link-right"><a class="anchor-margin" href="#">Log Out</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <div class="container">
-      <div class="page-header">
-        Content here
-      </div>
-    </div>
     <div>
       <div ng-view></div>
     </div>
