@@ -8,18 +8,68 @@
     padding: 0;
     text-align: center;
     font-size: 12px;
-    width: 160px;
+    width: 140px;
 
 }
 
 .blimflix-logo-link {
-    width: 70%;
-    padding: 0;
-    text-align: center;
-
+  margin: 0 auto;
+  padding: 0;
+  display: inline-block;
 }
 
 .blimflix-logo {
-    margin-left: 25%;
-    width: 40%;
+  padding-top: 5px;
+  height: 45px;
+  width: auto;
+  display: block;
+
+}
+
+@media (max-width: 767px) {
+  .blimflix-logo-link {
+    padding: 0;
+    height: 50px;
+
+  }
+
+  .blimflix-logo {
+    padding-top: 10px;
+    height: 40px;
+    width: auto;
+
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header-size {
+    height: 50px;
+  }
+
+  .navbar-size {
+    width: 100%;
+    text-align: center;
+  }
+
+  .list-size {
+    float: none;
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-size {
+    width: 25%;
+    float: left;
+    display: inline-flex;
+    justify-content: center;
+
+  }
+
+  .list-size {
+    float: right;
+  }
 }
