@@ -4,5 +4,5 @@
 (function () {
   'use strict';
 
-  angular.module('blimBlix.filters', []);
+  angular.module('blimFlix.filters', []);
 })();
