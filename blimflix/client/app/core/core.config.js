@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('blimBlix.core').config(config);
+  angular.module('blimFlix.core').config(config);
 
   /* @ngInject */
   function config() {
