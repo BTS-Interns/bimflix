@@ -14,7 +14,7 @@ module.exports = {
   | interacting with SQL databases.
   |
   */
-  connection: Env.get('DB_CONNECTION', 'sqlite'),
+  connection: Env.get('DB_CONNECTION', 'mysqll'),
 
   /*
   |--------------------------------------------------------------------------
@@ -49,9 +49,9 @@ module.exports = {
     client: 'mysql',
     connection: {
       host: Env.get('DB_HOST', 'localhost'),
-      user: Env.get('DB_USER', 'root'),
-      password: Env.get('DB_PASSWORD', ''),
-      database: Env.get('DB_DATABASE', 'adonis')
+      user: Env.get('DB_USER', 'blimflix'),
+      password: Env.get('DB_PASSWORD', 'iT75cRNIOFEVo8KJ'),
+      database: Env.get('DB_DATABASE', 'blimflix')
     }
   },
 
