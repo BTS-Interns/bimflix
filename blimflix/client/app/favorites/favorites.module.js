@@ -12,7 +12,7 @@
    * Declare modules without variables
    *   https://github.com/johnpapa/angular-styleguide#style-y021
    */
-  angular.module('blimFlix.favoriteMovies', [
+  angular.module('blimFlix.favorites', [
     /* module dependencies here */
   ]).run(runBlock);
 

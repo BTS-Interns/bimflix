@@ -6,8 +6,8 @@
    *   https://github.com/johnpapa/angular-styleguide#style-y022
    */
   angular
-    .module('blimFlix.favoriteMovies')
-    .controller('FavoriteMoviesController', FavoriteMoviesController);
+    .module('blimFlix.favorites')
+    .controller('FavoritesController', FavoritesController);
 
   /**
    * Avoid anonymous functions as callbacks
@@ -17,7 +17,7 @@
    *  https://github.com/johnpapa/angular-styleguide#style-y100
    */
   /* @ngInject */
-  function FavoriteMoviesController() {
+  function FavoritesController() {
 
     /**
      * Attach any view properties to this variable

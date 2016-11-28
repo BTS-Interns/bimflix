@@ -3,12 +3,12 @@
 (function () {
   'use strict';
 
-  describe('FavoriteMoviesController', function () {
+  describe('FavoritesController', function () {
     var controller, $controller;
 
     beforeEach(function () {
       angular.mock.module('blimFlix');
-      angular.mock.module('blimFlix.favoriteMovies');
+      angular.mock.module('blimFlix.favorites');
     });
 
     beforeEach(inject(function (_$controller_) {
@@ -16,7 +16,7 @@
     }));
 
     it('should exist', function () {
-      controller = $controller('FavoriteMoviesController', []);
+      controller = $controller('FavoritesController', []);
       expect(controller).not.toBe(null);
     });
   });
