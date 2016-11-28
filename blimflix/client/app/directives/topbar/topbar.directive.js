@@ -63,7 +63,7 @@
 		    index: 1,
 		    title: "Seen",
 		    count: 13,
-		    Url: "/"
+		    Url: "/seen"
    	  },
       {
 		    index: 2,
