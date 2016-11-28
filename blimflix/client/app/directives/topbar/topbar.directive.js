@@ -69,7 +69,7 @@
 		    index: 2,
 		    title: "Favorites",
 		    count: 8,
-		    Url: "/"
+		    Url: "/favorite-movies"
    	  },
       {
 		    index: 3,

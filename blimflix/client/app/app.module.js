@@ -14,5 +14,7 @@
    *   https://github.com/johnpapa/angular-styleguide#style-y161
    *   https://github.com/johnpapa/angular-styleguide#style-y162
    */
-  angular.module('blimFlix', ['blimFlix.core', 'blimFlix.all']);
+
+  angular.module('blimFlix', ['blimFlix.core', 'blimFlix.all', 'blimFlix.favoriteMovies']);
+
 })();
