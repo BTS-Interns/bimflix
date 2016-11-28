@@ -7,8 +7,8 @@
     var $compile, $scope;
 
     beforeEach(function () {
-      angular.mock.module('blimBlix');
-      angular.mock.module('blimBlix.directives');
+      angular.mock.module('blimFlix');
+      angular.mock.module('blimFlix.directives');
     });
 
     /**

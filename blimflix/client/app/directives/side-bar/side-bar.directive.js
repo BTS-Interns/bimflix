@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('blimBlix.directives')
+    .module('blimFlix.directives')
     .directive('sideBar', sideBar);
 
   function sideBar() {
@@ -18,8 +18,8 @@
   }
 
   function SideBarDirectiveController($scope) {
-  $scope.user= {
-    movie:'Mean Girls'
-  };
-}
+    $scope.user= {
+      movie:'Mean Girls'
+    };
+  }
 })();
