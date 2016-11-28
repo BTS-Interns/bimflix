@@ -51,7 +51,32 @@
    *  https://github.com/johnpapa/angular-styleguide#style-y100
    */
   /* @ngInject */
-  function SideBarDirectiveController() {
-
+  function SideBarDirectiveController($scope) {
+    $scope.sections = [
+      {
+		    index: 0,
+		    title: "All Movies",
+		    count: 30,
+		    Url: "/"
+   	  },
+      {
+		    index: 1,
+		    title: "Seen",
+		    count: 13,
+		    Url: "/"
+   	  },
+      {
+		    index: 2,
+		    title: "Favorites",
+		    count: 8,
+		    Url: "/"
+   	  },
+      {
+		    index: 3,
+		    title: "Watchlist",
+		    count: 19,
+		    Url: "/"
+   	  }
+    ];
   }
 })();

@@ -1,14 +1,7 @@
-<ul class="sidebar-nav nav">
-  <li class="sidebar-brand active">
-    <a href="#">All movies</a>
-  </li>
-  <li class="sidebar-brand">
-    <a href="#">Seen</a>
-  </li>
-  <li class="sidebar-brand">
-    <a href="#">Favorites</a>
-  </li>
-  <li class="sidebar-brand">
-    <a href="#">Watchlist</a>
-  </li>
-</ul>
+<div class="navbar col-md-10 column">
+  <ul class="sidebar-nav nav">
+    <li ng-repeat="section in sections" class="sidebar-brand">
+      <a ng-href={{section.Url}} >{{section.title}} <span class="badge badge-color">{{section.count}}</span></a>
+    </li>
+  </ul>
+</div>

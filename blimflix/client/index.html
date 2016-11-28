@@ -20,24 +20,17 @@
     <!-- endinject -->
     <!-- endbuild -->
   </head>
-  <body>
+  <body ng-controller="CoreController as core">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class="container">
+
+      <topbar></topbar>
+
       <div class="sidebar-wrapper col-xs-3">
-        <div class="row col-md-10 column">
-          <div class="col-xs-3">
-              <img class="img-responsive" src="./images/user.jpg" alt="" />
-          </div>
-          <div class="col-xs-9">
-              <h4>Bluetrail</h4>
-              <h5>Bluetrail@bluetrailsoft.com</h5>
-          </div>
-        </div>
-        <div class="navbar col-md-10 column">
-          <side-bar></side-bar>
-        </div>
+        <user-card></user-card>
+        <side-bar></side-bar>
       </div>
     </div>
     <div>
