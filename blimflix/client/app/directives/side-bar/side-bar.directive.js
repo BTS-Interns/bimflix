@@ -75,7 +75,7 @@
 		    index: 3,
 		    title: "Watchlist",
 		    count: 19,
-		    Url: "/"
+		    Url: "/watchlist"
    	  }
     ];
   }
