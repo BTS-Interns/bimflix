@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('blimFlix.favoriteMovies').config(config);
+  angular.module('blimFlix.favorites').config(config);
 
   /* @ngInject */
   function config($routeProvider) {
@@ -13,9 +13,9 @@
      * Always declare controllers with their routes
      *   https://github.com/johnpapa/angular-styleguide#style-y038
      */
-    $routeProvider.when('/favorite-movies', {
-      templateUrl: 'app/favorite-movies/favorite-movies.html',
-      controller: 'FavoriteMoviesController',
+    $routeProvider.when('/favorites', {
+      templateUrl: 'app/favorites/favorites.html',
+      controller: 'FavoritesController',
       controllerAs: 'vm',
       resolve: {}
     });
