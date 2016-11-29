@@ -57,7 +57,7 @@
 		    index: 0,
 		    title: "All Movies",
 		    count: 30,
-		    Url: "/"
+		    Url: "/all"
    	  },
       {
 		    index: 1,
