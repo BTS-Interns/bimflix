@@ -15,12 +15,10 @@
   <div class="col-lg-9">
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav list-size">
-        <li ng-repeat="section in sections" class="nav-link-right">
+        <li ng-repeat="section in sections">
           <a ng-href={{section.Url}} >{{section.title}} <span class="badge badge-color">{{section.count}}</span></a>
         </li>
-        <li class="nav-link-right">
-          <a ng-href="#">Log Out</a>
-        </li>
+        <li><a ng-href="#">Log Out</a></li>
       </ul>
     </div>
   </div>

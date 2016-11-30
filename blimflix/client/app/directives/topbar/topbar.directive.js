@@ -40,7 +40,8 @@
       templateUrl: 'app/directives/topbar/topbar.directive.html',
       scope: {},
       controllerAs: 'vm',
-      controller: ["$scope", TopbarDirectiveController]
+      controller: ["$scope", TopbarDirectiveController],
+      replace: true
     };
 
     return directive;
