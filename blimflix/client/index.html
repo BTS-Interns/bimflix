@@ -24,75 +24,21 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div class="container">
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="col-lg-3 header-size">
-          <div class="navbar-header navbar-size">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="blimflix-logo-link" href="#">
-              <img class="blimflix-logo" src="/images/blimflix-logo.png" alt="" />
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-9">
-          <div id="navbar" class="navbar-collapse collapse ">
-            <ul class="nav navbar-nav list-size">
-              <li class="active nav-link-right">
-                <a href="#">Movies <span class="badge badge-color">30</span></a>
-              </li>
-              <li class="nav-link-right">
-                <a href="#">Seen <span class="badge badge-color">10</span></a>
-              </li>
-              <li class="nav-link-right">
-                <a href="#">Favorites <span class="badge badge-color">3</span></a>
-              </li>
-              <li class="nav-link-right">
-                <a href="#">Watchlist <span class="badge badge-color">15</span></a>
-              </li>
-              <li class="nav-link-right">
-                <a href="#">Log Out</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
 
-      <div class="sidebar-wrapper col-xs-3">
-        <div class="row col-md-10 column">
-          <div class="col-xs-3">
-              <img class="img-responsive" src="./images/user.jpg" alt="" />
-          </div>
-          <div class="col-xs-9">
-              <h4>Bluetrail</h4>
-              <h5>Bluetrail@bluetrailsoft.com</h5>
-          </div>
+    <div class="wrapper">
+      <topbar></topbar>
+
+      <div class="page-wrapper">
+        <div class="col-md-3 sidebar-wrapper">
+          <user-card></user-card>
+          <side-bar></side-bar>
         </div>
-        <div class="navbar col-md-10 column">
-          <ul class="sidebar-nav nav">
-            <li class="sidebar-brand active">
-              <a href="#">All movies</a>
-            </li>
-            <li class="sidebar-brand">
-              <a href="#">Seen</a>
-            </li>
-            <li class="sidebar-brand">
-              <a href="#">Favorites</a>
-            </li>
-            <li class="sidebar-brand">
-              <a href="#">Watchlist</a>
-            </li>
-          </ul>
+        <div class="col-md-9 content-wrapper">
+          <div ng-view></div>
         </div>
       </div>
     </div>
-    <div>
-      <div ng-view></div>
-    </div>
+
     <!-- build:js(client) scripts/vendor.js -->
     <!-- bower:js -->
     <!-- run `gulp inject` to automatically populate bower script dependencies -->

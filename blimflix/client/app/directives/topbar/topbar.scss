@@ -1,0 +1,47 @@
+.badge-color {
+    background-color: #ff0000;
+    float: right;
+
+}
+
+.navbar-nav {
+  float: right !important;
+
+}
+
+.navbar-nav > li {
+  float: left;
+  padding: 0;
+  text-align: center;
+  font-size: 12px;
+  width: 120px;
+}
+
+.blimflix-logo-link {
+  margin: 0 auto;
+  padding: 0;
+  display: inline-block;
+}
+
+.blimflix-logo {
+  padding-top: 5px;
+  height: 45px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+
+}
+
+// Center logo when ham-icon is visible
+@media (max-width: 768px) {
+  .blimflix-logo-link {
+    width: calc(100% - 60px);
+
+    img {
+      padding-left: 25px;
+
+    }
+
+  }
+
+}

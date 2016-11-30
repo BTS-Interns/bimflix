@@ -1,15 +1,3 @@
-.sidebar-wrapper {
-  height: 100%;
-  background-color: #222;
-  position: fixed;
-  left: 0;
-  top: 50px;
-  padding: 0;
-  padding-top: 70px;
-  border-right: 2px solid black;
-
-}
-
 .profile-wrapper {
   height: 50px;
   color: #FFFFFF;
@@ -20,10 +8,7 @@
   color: #FFFFFF;
   .col-xs-3{
     padding: 0;
-    img {
-      width: 100%;
-      height: 100%;
-    }
+
   }
   .col-xs-9{
     padding: 0;
@@ -31,10 +16,18 @@
       padding: 0;
       margin:  0;
       padding-top: 5px;
-      padding-left: 10px
+      padding-left: 10px;
+      width: 100%;
+
     }
     h4 {
       font-weight: bold;
+      font-size: 1em;
+    }
+    h5 {
+      width: 100%;
+      height: auto;
+
     }
   }
 }
@@ -54,7 +47,7 @@
   }
 }
 
-.sidebar-nav li :first-child a {
+.sidebar-nav li:first-child a {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 
@@ -75,4 +68,28 @@
   background-color: #B9090B;
   color:white;
 
+}
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+  padding: 0;
+
+}
+
+// Hide sidebar on viewports smaller than 993px
+@media (max-width: 992px) {
+  .sidebar-wrapper {
+    display: none;
+
+  }
+  
 }
