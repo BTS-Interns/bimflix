@@ -24,18 +24,21 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div class="container">
 
+    <div class="wrapper">
       <topbar></topbar>
 
-      <div class="sidebar-wrapper col-xs-3">
-        <user-card></user-card>
-        <side-bar></side-bar>
+      <div class="page-wrapper">
+        <div class="col-md-3 sidebar-wrapper">
+          <user-card></user-card>
+          <side-bar></side-bar>
+        </div>
+        <div class="col-md-9 content-wrapper">
+          <div ng-view></div>
+        </div>
       </div>
     </div>
-    <div>
-      <div ng-view></div>
-    </div>
+
     <!-- build:js(client) scripts/vendor.js -->
     <!-- bower:js -->
     <!-- run `gulp inject` to automatically populate bower script dependencies -->
