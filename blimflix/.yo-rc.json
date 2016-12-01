@@ -1,6 +1,6 @@
 {
   "generator-angular-enterprise": {
-    "appName": "blimBlix",
+    "appName": "blimFlix",
     "clientSideFolder": "client/",
     "appSubFolder": "app/",
     "directivePrefix": "",

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html ng-app="blimBlix">
+<html ng-app="blimFlix">
   <head>
     <meta charset="utf-8">
-    <title>blimBlix</title>
+    <title>blimFlix</title>
     <base href="/">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
@@ -20,23 +20,25 @@
     <!-- endinject -->
     <!-- endbuild -->
   </head>
-  <body>
+  <body ng-controller="CoreController as core">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="container">
-      <div class="page-header">
-        <h2>Congratulations, you've scaffolded an app with Hestia!</h2>
-        <h4>I'd recommend starting by generating your first feature.</h4>
-        <div>Type this into your terminal: <kbd>ae feature your-first-feature</kbd></div>
-        <h4>After you make a feature, you'll probably need a controller to go along with it, and some HTML.</h4>
-        <div>Here's the command for that: <kbd>ae controller your-first-feature</kbd></div>
+    <div class="wrapper">
+      <topbar></topbar>
+
+      <div class="page-wrapper">
+        <div class="col-md-3 sidebar-wrapper">
+          <user-card></user-card>
+          <side-bar></side-bar>
+        </div>
+        <div class="col-md-9 content-wrapper">
+          <div ng-view></div>
+        </div>
       </div>
     </div>
-    <div>
-      <div ng-view></div>
-    </div>
+
     <!-- build:js(client) scripts/vendor.js -->
     <!-- bower:js -->
     <!-- run `gulp inject` to automatically populate bower script dependencies -->
@@ -52,6 +54,5 @@
     <!-- angular templates will be automatically converted in js and inserted here -->
     <!-- endinject -->
     <!-- endbuild -->
-
   </body>
 </html>

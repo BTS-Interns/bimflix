@@ -1,0 +1,95 @@
+.profile-wrapper {
+  height: 50px;
+  color: #FFFFFF;
+
+}
+
+.row {
+  color: #FFFFFF;
+  .col-xs-3{
+    padding: 0;
+
+  }
+  .col-xs-9{
+    padding: 0;
+    h4, h5 {
+      padding: 0;
+      margin:  0;
+      padding-top: 5px;
+      padding-left: 10px;
+      width: 100%;
+
+    }
+    h4 {
+      font-weight: bold;
+      font-size: 1em;
+    }
+    h5 {
+      width: 100%;
+      height: auto;
+
+    }
+  }
+}
+
+.column {
+  float: none;
+  margin: 0 auto;
+  padding: 0;
+  .sidebar-nav {
+    margin-top: 50px;
+    li a {
+      background-color: gray;
+      color:black;
+      border-bottom: 1px solid #6F6F6F;
+      font-weight: bold;
+    }
+  }
+}
+
+.sidebar-nav li:first-child a {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+}
+
+.sidebar-nav li:last-child a {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+}
+
+.sidebar-nav li:last-child a {
+  border:none;
+
+}
+
+.sidebar-nav > li > a:hover, .nav > li > a:focus {
+  background-color: #B9090B;
+  color:white;
+
+}
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+  padding: 0;
+
+}
+
+// Hide sidebar on viewports smaller than 993px
+@media (max-width: 992px) {
+  .sidebar-wrapper {
+    display: none;
+
+  }
+  
+}
