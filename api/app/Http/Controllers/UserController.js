@@ -23,14 +23,15 @@ class UserController {
   * listFavorites (request, response) {
 
     // Get userID from request
-    const id = request.param('id')
+    const userID = request.param('user_id')
 
+    // Get user table handle
     const query = Database.table('users')
 
     // Get user's favorite movies
     const favorites = yield query
       .table('favorite')
-      .where('userID', id)
+      .where('userID', userID)
       .innerJoin('movie', 'movie.movieID', 'favorite.movieID')
 
     response.json(favorites)
@@ -42,7 +43,7 @@ class UserController {
 
     // Get data from request
     const data = request.all()
-    const movieID = data.movie
+    const movieID = data.movieID
     const userID = request.param('user_id')
 
     // Check if movie has been already marked as favorite
@@ -55,40 +56,62 @@ class UserController {
       response.status(304).send()
     }
 
-    // Get all favorite movies
+    // Create favorite item
     let favorite = new Favorite()
-
     favorite.userID = userID
     favorite.movieID = movieID
     let result = yield favorite.save()
 
     // Send response
     if (result) {
-      response.status(201).send({id: favorite.favoriteID})
+
+      // Get database handle
+      const movieQuery = Database.table('movie')
+
+      // Get movie data
+      const movie = yield movieQuery
+        .table('movie')
+        .where('movieID', movieID)
+
+      // Send status
+      response.status(201).send(movie)
+
     } else {
+
+      // Return error
       response.status(500).send(
         {message: 'There was an error while marking movie as favorite.'}
       )
     }
   }
 
-  // Marks the specified movie as favorite
+  // Deletes movie from favorites
   * deleteFavorite (request, response) {
 
+    // vars
+    let isDeleted = false
+
     // Get data from request
-    const data = request.all()
     const movieID = request.param('movie_id')
     const userID = request.param('user_id')
 
-    // Delete movie from favorites list
+    // Find movie in favorite list
     const query = Database.table('favorite')
-    const isDeleted = yield query
+    const favorite = yield query
     .where({userID: userID, movieID: movieID})
-    .delete()
+
+    // Delete
+    if (favorite.length > 0) {
+      let id = favorite[0].favoriteID
+      const item = yield Favorite.findBy('favoriteID', id)
+      isDeleted = yield item.delete()
+    }
 
     // Do not process if already deleted
     if (isDeleted) {
-      response.status(202).send()
+      response.status(200).send()
+    } else {
+      response.status(404).send()
     }
   }
 
@@ -99,72 +122,95 @@ class UserController {
   * listSeen (request, response) {
 
     // Get userID from request
-    const id = request.param('id')
+    const userID = request.param('user_id')
 
+    // Get user table handle
     const query = Database.table('users')
 
     // Get user's seen movies
     const seen = yield query
       .table('seen')
-      .where('userID', id)
+      .where('userID', userID)
       .innerJoin('movie', 'movie.movieID', 'seen.movieID')
 
      response.json(seen)
 
    }
 
-  // Marks the specified movie as seen
-  * createSeen (request, response) {
+   // Marks the specified movie as seen
+   * createSeen (request, response) {
 
     // Get data from request
     const data = request.all()
-    const movieID = data.movie
+    const movieID = data.movieID
     const userID = request.param('user_id')
 
-    // Check if movie has been already marked as seen
+    // Check if movie has been already marked as favorite
     const query = Database.table('seen')
     const isSeen = yield query
     .where({userID: userID, movieID: movieID})
 
     // Do not process if already marked
     if (isSeen.length > 0) {
-      response.status(304).send()
+     response.status(304).send()
     }
 
-    // Get all seen movies
+    // Create seen item
     let seen = new Seen()
-
-    Seen.userID = userID
-    Seen.movieID = movieID
+    seen.userID = userID
+    seen.movieID = movieID
     let result = yield seen.save()
 
     // Send response
     if (result) {
-      response.status(201).send({id: seen.seenID})
+
+     // Get database handle
+     const movieQuery = Database.table('movie')
+
+     // Get movie data
+     const movie = yield movieQuery
+       .table('movie')
+       .where('movieID', movieID)
+
+     // Send status
+     response.status(201).send(movie)
+
     } else {
-      response.status(500).send(
-        {message: 'There was an error while marking movie as seen.'}
-      )
+
+     // Return error
+     response.status(500).send(
+       {message: 'There was an error while marking movie as seen.'}
+     )
     }
   }
 
-  // Marks the specified movie as seen
+  // Deletes the specified movie from seen list
   * deleteSeen (request, response) {
 
+    // vars
+    let isDeleted = false
+
     // Get data from request
-    const data = request.all()
     const movieID = request.param('movie_id')
     const userID = request.param('user_id')
 
-    // Delete movie from seen list
+    // Find movie in seen list
     const query = Database.table('seen')
-    const isDeleted = yield query
+    const seen = yield query
     .where({userID: userID, movieID: movieID})
-    .delete()
+
+    // Delete
+    if (seen.length > 0) {
+      let id = seen[0].seenID
+      const item = yield Seen.findBy('seenID', id)
+      isDeleted = yield item.delete()
+    }
 
     // Do not process if already deleted
     if (isDeleted) {
-      response.status(202).send()
+      response.status(200).send()
+    } else {
+      response.status(404).send()
     }
   }
 
@@ -175,14 +221,15 @@ class UserController {
   * listWatchlist (request, response) {
 
     // Get userID from request
-    const id = request.param('id')
+    const userID = request.param('user_id')
 
+    // Get user table handle
     const query = Database.table('users')
 
     // Get user's watchlist movies
     const watchlist = yield query
       .table('watchlist')
-      .where('userID', id)
+      .where('userID', userID)
       .innerJoin('movie', 'movie.movieID', 'watchlist.movieID')
 
      response.json(watchlist)
@@ -194,32 +241,44 @@ class UserController {
 
     // Get data from request
     const data = request.all()
-    const movieID = data.movie
+    const movieID = data.movieID
     const userID = request.param('user_id')
 
     // Check if movie has been already added to watchlist
     const query = Database.table('watchlist')
-    const inWatchlist = yield query
+    const isWatched = yield query
     .where({userID: userID, movieID: movieID})
 
-    // Do not process if already marked
-    if (inWatchlist.length > 0) {
+    // Do not process if already added
+    if (isWatched.length > 0) {
       response.status(304).send()
     }
 
-    // Get all watchlist movies
+    // Create watchlist item
     let watchlist = new Watchlist()
-
-    Watchlist.userID = userID
-    Watchlist.movieID = movieID
+    watchlist.userID = userID
+    watchlist.movieID = movieID
     let result = yield watchlist.save()
 
     // Send response
     if (result) {
-      response.status(201).send({id: seen.seenID})
+
+      // Get database handle
+      const movieQuery = Database.table('movie')
+
+      // Get movie data
+      const movie = yield movieQuery
+      .table('movie')
+      .where('movieID', movieID)
+
+      // Send status
+      response.status(201).send(movie)
+
     } else {
+
+      // Return error
       response.status(500).send(
-        {message: 'There was an error while adding the movie to watchlist.'}
+        {message: 'There was an error while adding movie to watchlist.'}
       )
     }
   }
@@ -227,20 +286,30 @@ class UserController {
   // Marks the specified movie as seen
   * deleteWatchlist (request, response) {
 
+    // vars
+    let isDeleted = false
+
     // Get data from request
-    const data = request.all()
     const movieID = request.param('movie_id')
     const userID = request.param('user_id')
 
-    // Check if movie has been already marked as seen
+    // Find movie in watchlist
     const query = Database.table('watchlist')
-    const isDeleted = yield query
+    const watchlist = yield query
     .where({userID: userID, movieID: movieID})
-    .delete()
+
+    // Delete
+    if (watchlist.length > 0) {
+      let id = watchlist[0].watchlistID
+      const item = yield Watchlist.findBy('watchlistID', id)
+      isDeleted = yield item.delete()
+    }
 
     // Do not process if already deleted
     if (isDeleted) {
-      response.status(202).send()
+      response.status(200).send()
+    } else {
+      response.status(404).send()
     }
   }
 }
