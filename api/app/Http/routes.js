@@ -33,6 +33,6 @@ Route.post('/user/:id/seen', 'UserController.createSeen')                 // cre
 Route.delete('/user/:id/seen/:idSeen', 'UserController.deleteSeen')       // deletes an user' seen movie
 
 // Watchlist resource
-Route.get('/user/:id/watchlist', 'UserController.watchlist')                      // Lists user' watchlist
+Route.get('/user/:id/watchlist', 'UserController.listWatchlist')                      // Lists user' watchlist
 Route.post('/user/:id/watchlist', 'UserController.createWatchlist')               // creates user' watchlist entry
 Route.delete('/user/:id/watchlist/:idWlist', 'UserController.deleteWatchlist')    // deletes an existing user's watchlist entry
