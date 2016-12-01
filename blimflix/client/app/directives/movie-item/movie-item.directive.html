@@ -1,0 +1,6 @@
+<div class="col-md-2 movie-item-poster">
+  <img src="{{movieItem.poster}}" alt="{{movieItem.title}}" />
+  <div class="details-overlay">
+    <img ng-click="selectCategory(image)" ng-src="{{image.selected}}" ng-repeat="image in imgsSources" alt="watchlist" />
+  </div>
+</div>

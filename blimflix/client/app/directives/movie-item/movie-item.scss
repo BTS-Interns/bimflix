@@ -1,0 +1,41 @@
+.movie-item-poster {
+  position: relative;
+
+  // &:hover > .details-overlay {
+  //   display: block;
+  // }
+
+  img {
+    width: 100%;
+    height: auto;
+
+    &:hover + .details-overlay {
+      display: block;
+    }
+
+  }
+
+  .details-overlay {
+    position: absolute;
+    display: none;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    right: 15px;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding-top: 105%;
+    padding-left: 5%;
+
+    &:hover {
+      display: block;
+    }
+
+    img {
+      width: 16%;
+      height: auto;
+      margin: 0 4% 0 4%;
+    }
+
+  }
+
+}
