@@ -17,8 +17,9 @@
    *  https://github.com/johnpapa/angular-styleguide#style-y100
    */
   /* @ngInject */
-  function AllController() {
+  AllController.$inject =  ['moviesFactory'];
 
+  function AllController(moviesFactory) {
     /**
      * Attach any view properties to this variable
      *   https://github.com/johnpapa/angular-styleguide#style-y032
@@ -32,6 +33,7 @@
      *   https://github.com/johnpapa/angular-styleguide#style-y033
      */
     vm.activate = activate;
+    vm.movies = moviesFactory.query();
 
     activate();
 
@@ -40,7 +42,7 @@
      *   https://github.com/johnpapa/angular-styleguide#style-y080
      */
     function activate() {
-
+      console.log(vm.movies);
     }
 
     /**
