@@ -1,6 +1,22 @@
 <div class="col-md-2 movie-item-poster">
   <img src="{{movieItem.poster}}" alt="{{movieItem.title}}" />
   <div class="details-overlay">
-    <img ng-click="selectCategory(image)" ng-src="{{image.selected}}" ng-repeat="image in imgsSources" alt="watchlist" />
+    <div class="displayer" ng-click="displayDetails()"></div>
+    <img ng-mouseover="selectCategory(imgsSources[0])"
+         ng-mouseleave="selectCategory(imgsSources[0])"
+         ng-src="{{imgsSources[0].selected}}"
+         alt="{{imgsSources[0].category}}" />
+    <img ng-mouseover="selectCategory(imgsSources[1])"
+         ng-mouseleave="selectCategory(imgsSources[1])"
+         ng-src="{{imgsSources[1].selected}}"
+         alt="{{imgsSources[1].category}}" />
+    <img ng-mouseover="selectCategory(imgsSources[2])"
+         ng-mouseleave="selectCategory(imgsSources[2])"
+         ng-src="{{imgsSources[2].selected}}"
+         alt="{{imgsSources[2].category}}" />
+    <img ng-mouseover="selectCategory(imgsSources[3])"
+         ng-mouseleave="selectCategory(imgsSources[3])"
+         ng-src="{{imgsSources[3].selected}}"
+         alt="{{imgsSources[3].category}}" />
   </div>
 </div>

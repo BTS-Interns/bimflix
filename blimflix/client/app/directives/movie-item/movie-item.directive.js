@@ -71,18 +71,22 @@
 
     $scope.imgsSources = [
       {
+        category: "watchlist",
         selected: "/images/watchlist-unselected.png",
         unselected: "/images/watchlist-selected.png"
       },
       {
+        category: "seen",
         selected: "/images/seen-unselected.png",
         unselected: "/images/seen-selected.png"
       },
       {
+        category: "favorites",
         selected: "/images/favorites-unselected.png",
         unselected: "/images/favorites-selected.png"
       },
       {
+        category: "rating",
         selected: "/images/rating-empty-star.png",
         unselectedNext: "/images/rating-half-star.png",
         unselectedLast: "/images/rating-full-star.png"
@@ -91,7 +95,7 @@
 
     $scope.selectCategory = function selectCategory(image){
       let temp = image.selected;
-      if( Object.keys(image).length === 4 ){
+      if( Object.keys(image).length === 5 ){
         image.selected = image.unselectedNext;
         image.unselectedNext = image.unselectedLast;
         image.unselectedLast = temp;
@@ -99,6 +103,10 @@
         image.selected = image.unselected;
         image.unselected = temp;
       }
+    }
+
+    $scope.displayDetails = function displayDetails(){
+      console.log('Display details');
     }
   }
 })();
