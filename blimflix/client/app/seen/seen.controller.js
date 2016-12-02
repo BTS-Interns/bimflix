@@ -8,6 +8,7 @@
   angular
     .module('blimFlix.seen')
     .controller('SeenController', SeenController);
+    SeenController.$inject = ['seen'];
 
   /**
    * Avoid anonymous functions as callbacks
@@ -17,8 +18,9 @@
    *  https://github.com/johnpapa/angular-styleguide#style-y100
    */
   /* @ngInject */
-  function SeenController() {
-
+  function SeenController(seen) {
+    // var movies = seen.get({id:1});
+    // console.log(movies);
     /**
      * Attach any view properties to this variable
      *   https://github.com/johnpapa/angular-styleguide#style-y032
