@@ -18,9 +18,9 @@
   function seen($resource) {
 
     return $resource('http://localhost:3333/users/:id/seen/:idM',{id:'@id', idM:'@idM'}, {
-      'query': { method: 'GET', isArray: true},
-      'save': { method: 'POST' },
-      'remove': { method:'DELETE'}
+      'query' : { method: 'GET', isArray: true },
+      'save'  : { method: 'POST' },
+      'remove': { method: 'DELETE' }
     });
   }
 })();
