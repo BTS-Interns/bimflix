@@ -1,54 +1,36 @@
 (function() {
   'use strict';
 
-  /**
-   * Chain to fetch module
-   *   https://github.com/johnpapa/angular-styleguide#style-y022
-   */
   angular
     .module('blimFlix.watchlist')
     .controller('WatchlistController', WatchlistController);
-    WatchlistController.inject = ['watchlist'];
+    WatchlistController.$inject = ['watchlist'];
 
-  /**
-   * Avoid anonymous functions as callbacks
-   *   https://github.com/johnpapa/angular-styleguide#style-y024
-   *
-   * Document dependency injenction using annotations
-   *  https://github.com/johnpapa/angular-styleguide#style-y100
-   */
-  /* @ngInject */
   function WatchlistController(watchlist) {
 
-    /**
-     * Attach any view properties to this variable
-     *   https://github.com/johnpapa/angular-styleguide#style-y032
-     */
-    /* jshint validthis: true */
     var vm = this;
 
-    /**
-     * Bindable vm.* members (in alphabetical order)
-     *   All variables here should be part of the vm object and not bound to `this`
-     *   https://github.com/johnpapa/angular-styleguide#style-y033
-     */
+    // watchlist.query({id:1}).$promise.then(function (data) {
+    //   vm.getWatchlist = data;
+    // });
+
+    watchlist.save({id:1, movieID:10, userID:1}).$promise.then(function (data) {
+      vm.postWatchlist = data;
+      //console.log(vm.postWatchlist);
+    });
+
+    // watchlist.remove({id:1, idM:10}).$promise.then(function (data) {
+    //   vm.removeWatchlist = data;
+    //   console.log(data);
+    // });
+
     vm.activate = activate;
 
     activate();
 
-    /**
-     * startup logic goes here
-     *   https://github.com/johnpapa/angular-styleguide#style-y080
-     */
     function activate() {
 
     }
-
-    /**
-     * Non-1-liner view methods here; declare as regular functions
-     *   Implementation details should be declared here and linked via references (note that functions are hoisted up)
-     *   https://github.com/johnpapa/angular-styleguide#style-y034
-     */
   }
 
 })();
