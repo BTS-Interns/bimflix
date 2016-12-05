@@ -22,6 +22,10 @@ Route.on('/').render('welcome')
 // Movies resource
 Route.get('/movies', 'MovieController.list')    // Lists all movies
 
+// Users resource
+Route.get('/users/:user_id', 'UserController.getUser')              // Lists user's favorite movies
+Route.post('/users', 'UserController.createUser')              // Lists user's favorite movies
+
 // Favorites resource
 Route.get('/users/:user_id/favorites', 'UserController.listFavorites')              // Lists user's favorite movies
 Route.post('/users/:user_id/favorites', 'UserController.createFavorite')       // creates user's favorite movies

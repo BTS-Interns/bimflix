@@ -20,6 +20,80 @@ const Database = use('Database')
 class UserController {
 
   // Returns the user's favorite movies
+  * getUser (request, response) {
+
+    // Get userID from request
+    const userID = request.param('user_id')
+
+    // Get user table handle
+    const query = Database.table('user')
+
+    // Get user's favorite movies
+    const userData = yield query
+      .table('user')
+      .where('userID', userID)
+
+    response.json(userData)
+
+  }
+
+  * createUser (request, response) {
+
+    // Get data from request
+    const data = request.all()
+    const username = data.username
+    const email = data.email
+    const password = data.password
+    const avatar = data.avatar
+
+    // Check if username already exists
+    let query = Database.table('user')
+    let alreadyExists = yield query
+    .where({username: username})
+    if (alreadyExists.length > 0) {
+      response.status(422).send('Username already exists')
+    }
+
+    // Check if email already exists
+    query = Database.table('user')
+    alreadyExists = yield query
+    .where({email: email})
+    if (alreadyExists.length > 0) {
+      response.status(422).send('Email already exists')
+    }
+
+    // Create favorite item
+    let user = new User()
+    user.username = username
+    user.email = email
+    user.password = password
+    user.avatar = avatar
+    let result = yield user.save()
+
+    // Send response
+    if (result) {
+
+      // Get database handle
+      const userQuery = Database.table('user')
+
+      // Get movie data
+      user = yield userQuery
+        .table('user')
+        .where('username', username)
+
+      // Send status
+      response.status(201).send(user)
+
+    } else {
+
+      // Return error
+      response.status(500).send(
+        {message: 'There was an error while creating user'}
+      )
+    }
+  }
+
+  // Returns the user's favorite movies
   * listFavorites (request, response) {
 
     // Get userID from request
