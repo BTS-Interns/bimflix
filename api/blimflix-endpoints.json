@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "Favorites",
+		"name": "Blimflix",
 		"_postman_id": "97bd1bfb-53ef-8aed-05b6-1c43a105b9bd",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
@@ -235,8 +235,8 @@
 		{
 			"name": "Delete User Watchlist",
 			"request": {
-				"url": "http://localhost:3333/users/1/watchlist/1",
-				"method": "DELETE",
+				"url": "http://localhost:3333/users",
+				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -251,7 +251,57 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"movieID\": 1\n}"
+					"raw": "{\n\t\"username\":\"manuelr\",\n\t\"email\":\"manuelr@bluetrailsoft.com\",\n\t\"password\":\"manuRocks!\",\n\t\"avatar\":\"manu\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"url": "http://localhost:3333/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"blimflix\",\n\t\"email\":\"blimflix@bluetrailsoft.com\",\n\t\"password\":\"blimflixRocks!\",\n\t\"avatar\":\"blimflix\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"url": "http://localhost:3333/users/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"blimflix\",\n\t\"email\":\"blimflix@bluetrailsoft.com\",\n\t\"password\":\"blimflixRocks!\",\n\t\"avatar\":\"blimflix\"\n}"
 				},
 				"description": ""
 			},
