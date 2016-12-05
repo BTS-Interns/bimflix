@@ -7,10 +7,10 @@
 
     function AllController() {
     var vm = this;
-    // vm.data={
-    //   name:"sara",
-    //   team:"beatles"
-    // }
+    vm.data={
+      name:"sara",
+      team:"beatles"
+    }
 
     vm.activate = activate;
     activate();
