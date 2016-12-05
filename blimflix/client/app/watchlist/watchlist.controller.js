@@ -8,6 +8,7 @@
   angular
     .module('blimFlix.watchlist')
     .controller('WatchlistController', WatchlistController);
+    WatchlistController.inject = ['watchlist'];
 
   /**
    * Avoid anonymous functions as callbacks
@@ -17,7 +18,7 @@
    *  https://github.com/johnpapa/angular-styleguide#style-y100
    */
   /* @ngInject */
-  function WatchlistController() {
+  function WatchlistController(watchlist) {
 
     /**
      * Attach any view properties to this variable
