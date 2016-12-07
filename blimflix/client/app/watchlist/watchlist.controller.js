@@ -8,7 +8,7 @@
 
   function WatchlistController(watchlist) {
 
-    var vm = this;|
+    var vm = this;
 
     vm.activate = activate;
 

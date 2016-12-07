@@ -23,7 +23,7 @@
     return $resource('http://localhost:3333/users/:user_id/favorites/:movie_id',
       {user_id: '@user_id', movie_id: '@movie_id'},
       {
-        'query' : { method: 'GET', isArray: true, },
+        'query' : { method: 'GET', isArray: true },
         'save'  : { method: 'POST' },
         'remove': { method: 'DELETE' }
       });
