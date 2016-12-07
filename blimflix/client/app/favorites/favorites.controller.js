@@ -8,6 +8,7 @@
   angular
     .module('blimFlix.favorites')
     .controller('FavoritesController', FavoritesController);
+    FavoritesController.$inject = ['favorites'];
 
   /**
    * Avoid anonymous functions as callbacks
@@ -17,7 +18,7 @@
    *  https://github.com/johnpapa/angular-styleguide#style-y100
    */
   /* @ngInject */
-  function FavoritesController() {
+  function FavoritesController(favorites) {
 
     /**
      * Attach any view properties to this variable
