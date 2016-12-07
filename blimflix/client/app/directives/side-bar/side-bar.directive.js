@@ -12,7 +12,7 @@
       templateUrl: 'app/directives/side-bar/side-bar.directive.html',
       scope: {},
       controllerAs: 'vm',
-      controller: ["$scope", SideBarDirectiveController],
+      controller: SideBarDirectiveController,
       replace:true
     };
 
