@@ -8,6 +8,8 @@
   angular.module('blimFlix.core').config(config);
 
   /* @ngInject */
-  function config() {
+  function config($routeProvider) {
+    $routeProvider
+      .otherwise('/all');
   }
 })();

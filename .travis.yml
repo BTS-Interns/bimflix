@@ -1,17 +1,17 @@
 sudo: false
 language: node_js
 node_js:
-  - '4.6.2'
-
+- 4.6.2
 before_install: if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
-
 before_script:
-  - cd ./blimflix
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - npm install
-  - bower install
-  - sleep 1 # give server time to start
-
+- cd ./blimflix
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- npm install
+- bower install
+- sleep 1
 script:
-  - npm test
+- npm test
+notifications:
+  slack:
+    secure: NwesGS8Pzwb6RIz7NTEegcnvMNIunUHGOO29jenNybMyqnX75l3Q1bDyMthbWe2mx8XLgdKVyFMxiol568IZN0M1bS7bX50LirjUx5iBbX9jjusR/UaOxklD8FAgZQSsCaDDCtyLCqMqcbfnXX32x0fvLfvZLWnFPuc2olgQKEnqn0VCd0FqnLjD5bFFjChCHulY6ooUdQyF1o/QSmEu+C1ogb0rL+O/k10PZNGHvJurallofmVVFofFdg1Amue4VDlVigosvuaHEq0bCOGHjYMz5Ex3xWMLEWbAQaO9g0CibpWFxmeH2JEQ1Yg3dYKWqbb2mGn3ZvnYhM1LNBH/FIltQwhLK+c0vVpTS3HSpRuTsHm+LkuobjX+O2LZS7tPRr6QmWUTkXYfVPVk48l2HrZUPai1sFnUo9cAYSL5X/IZsFchci3ForxG2yo25uxz26wif7MBqr1K8/m2mbv4/JPTmNwAucbaSBeGkpcirIsonWlsRpST/6DcmQPFcnVDT5RBTUxDlX2LbRtc0yjcEAsfL47/A9eCBuuslSEC8z3Vhw5hmw0jZdyKHnXbWjaVbr0kKHbhA0YHvPs5SkKVo+ToAcJMjxyKMWixInkZHofKxjldwFPj4LGf9oMp9S2DwMGpRggHMovK/NcrzinDiX50x30ZfKBOI810T6woa+c=

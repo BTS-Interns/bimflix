@@ -8,7 +8,7 @@
   angular
     .module('blimFlix.core')
     .controller('CoreController', CoreController);
-
+    CoreController.$inject = ['users'];
   /**
    * Avoid anonymous functions as callbacks
    *   https://github.com/johnpapa/angular-styleguide#style-y024
@@ -17,8 +17,8 @@
    *  https://github.com/johnpapa/angular-styleguide#style-y100
    */
   /* @ngInject */
-  function CoreController() {
-
+  function CoreController(users) {
+    
     /**
      * Attach any view properties to this variable
      *   https://github.com/johnpapa/angular-styleguide#style-y032

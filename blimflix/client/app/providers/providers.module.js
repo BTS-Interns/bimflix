@@ -4,5 +4,5 @@
 (function () {
   'use strict';
 
-  angular.module('blimFlix.providers', []);
+  angular.module('blimFlix.providers', ['ngResource']);
 })();
