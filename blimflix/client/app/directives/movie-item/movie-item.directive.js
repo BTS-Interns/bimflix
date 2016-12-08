@@ -39,12 +39,11 @@
       restrict: 'EA',
       templateUrl: 'app/directives/movie-item/movie-item.directive.html',
       scope: {
-        movie: '=',
-        showModal: '='
+        movie: '='
       },
       replace: true,
       controllerAs: 'vm',
-      controller: ['$scope', MovieItemDirectiveController],
+      controller: ['$scope', '$modal', MovieItemDirectiveController],
     };
 
     return directive;
@@ -55,8 +54,8 @@
    *  https://github.com/johnpapa/angular-styleguide#style-y100
    */
   /* @ngInject */
-  function MovieItemDirectiveController($scope) {console.log('Display details');
-
+  function MovieItemDirectiveController($scope, $modal) {
+    $scope.showModal = false;
     $scope.imgsSources = [
       {
         category: 'watchlist',
@@ -93,8 +92,14 @@
       }
     };
 
+    $scope.posterStyle = { 'background-image' : 'url(' + $scope.movie.poster + ')'};
+
     $scope.displayDetails = function displayDetails(){
-      $scope.showModal = !$scope.showModal;
+      $modal.open({
+        size: 'md',
+        templateUrl: 'app/directives/movie-details/movie-details.directive.html',
+        scope: $scope
+      });
     };
   }
 })();

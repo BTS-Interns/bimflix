@@ -14,6 +14,8 @@
     watchList.$promise.then(function(data){
       vm.watchlistArray = data;
     });
+    vm.movie = {};
+    vm.showModal = false;
     vm.activate = activate;
     activate();
     function activate() {

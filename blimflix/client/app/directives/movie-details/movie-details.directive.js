@@ -37,10 +37,9 @@
      */
     var directive = {
       restrict: 'EA',
-      templateUrl: 'app/directives/movie-details/movie-details.directive.html',
+      // templateUrl: 'app/directives/movie-details/movie-details.directive.html',
       scope: {
-          movie: "=",
-          showModal: "@"
+          movie: '='
       },
       controllerAs: 'vm',
       controller: ['$scope', '$modal', MovieDetailsDirectiveController],
@@ -56,7 +55,12 @@
    */
   /* @ngInject */
   function MovieDetailsDirectiveController($scope, $modal) {
-      
+    $scope.showModal = function showModal() {
+      $modal.open({
+        size: 'sm',
+        templateUrl: 'app/directives/movie-details/movie-details.directive.html',
+      });
+    };
   }
 })();
 
