@@ -20,6 +20,9 @@ const Route = use('Route')
 Route.on('/').render('welcome')
 
 // Movies resource
+Route.get('/users/:user_id/navigation', 'NavigationController.navigation')    // returns navigation data
+
+// Movies resource
 Route.get('/movies', 'MovieController.list')    // Lists all movies
 
 // Users resource
