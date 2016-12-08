@@ -16,16 +16,25 @@
         filtered: '='
       },
       controllerAs: 'vm',
-      controller: MovieFiltersDirectiveController
+      link: MovieFiltersDirectiveController
     };
 
     return directive;
   }
 
   function MovieFiltersDirectiveController($scope) {
+    $scope.$watch('movies.length',
+         function(newValue, oldValue){
+           generateGenres();
+           generateYears();
+         }
+     );
+
+
     var allGenres=[], allYears=[];
 
-    for(let i=0;i<$scope.movies.length;i++){
+    function generateGenres(){
+      for(let i=0;i<$scope.movies.length;i++){
       let array=$scope.movies[i].genre.split(", ");
       if(i===0){
         for(let j=0;j<array.length;j++){
@@ -41,8 +50,10 @@
       }
     }
     $scope.genres = allGenres;
+  }
 
-    for(let i=0;i<$scope.movies.length;i++){
+  function generateYears(){
+   for(let i=0;i<$scope.movies.length;i++){
       if(i===0){
           allYears[allYears.length]=$scope.movies[i].year;
       }
@@ -53,6 +64,7 @@
       }
     }
     $scope.years = allYears;
+  }
 
     $scope.genre=null;
     $scope.year=null;
