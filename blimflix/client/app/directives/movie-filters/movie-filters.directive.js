@@ -30,8 +30,7 @@
          }
      );
 
-
-    var allGenres=[], allYears=[];
+     var allGenres=[], allYears=[];
 
     function generateGenres(){
       for(let i=0;i<$scope.movies.length;i++){
