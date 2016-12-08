@@ -1,1 +1,2 @@
-<h1>Movies I'd like to watch (19)</h1>
+<movie-filters title="Movies I'd like to watch" movies="vm.watchlistArray" filtered="vm.filteredWatchlist"></movie-filters>
+<movie-item ng-repeat="movie in vm.filteredWatchlist" movie="movie"></movie-item>
