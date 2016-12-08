@@ -1,5 +1,5 @@
 <div class="container-filters">
-  <p class="heading">{{title}} ({{qty}})</p>
+  <p class="heading">{{title}} ({{filtered.length}})</p>
   <form class="navbar-form" role="search">
     <div class="input-group add-on">
       <input class="form-control" placeholder="Search" type="text" ng-model="name">
@@ -24,5 +24,4 @@
     <option value="">Select year</option>
     <option></option>
   </select>
-  <img class="poster" ng-repeat="x in filtered" ng-src={{x.poster}} alt="Smiley face" height="150" width="100">
 </div>

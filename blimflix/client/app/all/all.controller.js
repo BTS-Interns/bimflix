@@ -13,9 +13,9 @@
    *  https://github.com/johnpapa/angular-styleguide#style-y100
    */
   /* @ngInject */
-  AllController.$inject =  ['moviesFactory'];
+  AllController.$inject =  ['$scope', 'moviesFactory'];
 
-  function AllController(moviesFactory) {
+  function AllController($scope, moviesFactory) {
     /**
      * Attach any view properties to this variable
      *   https://github.com/johnpapa/angular-styleguide#style-y032
@@ -26,12 +26,13 @@
 
     vm.activate = activate;
 
-    vm.movies = moviesFactory.query();
+    $scope.movies = moviesFactory.query();
+    $scope.filteredMovies = [];
 
     activate();
 
     function activate() {
-      console.log(vm.movies);
+      console.log($scope.movies);
     }
   }
 })();
