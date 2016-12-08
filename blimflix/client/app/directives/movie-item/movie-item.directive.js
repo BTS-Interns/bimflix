@@ -39,7 +39,8 @@
       restrict: 'EA',
       templateUrl: 'app/directives/movie-item/movie-item.directive.html',
       scope: {
-        movie: "="
+        movie: "=",
+        showModal: "="
       },
       replace: true,
       controllerAs: 'vm',
@@ -54,7 +55,7 @@
    *  https://github.com/johnpapa/angular-styleguide#style-y100
    */
   /* @ngInject */
-  function MovieItemDirectiveController($scope) {
+  function MovieItemDirectiveController($scope) {console.log('Display details');
 
     $scope.imgsSources = [
       {
@@ -93,7 +94,7 @@
     }
 
     $scope.displayDetails = function displayDetails(){
-      console.log('Display details');
+      $scope.showModal = !$scope.showModal;
     }
   }
 })();

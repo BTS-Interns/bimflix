@@ -1,18 +1,8 @@
 .movie-item-poster {
   position: relative;
 
-  // &:hover > .details-overlay {
-  //   display: block;
-  // }
-
-  img {
-    width: 100%;
-    height: auto;
-
-    &:hover + .details-overlay {
-      display: block;
-    }
-
+  &:hover + .details-overlay {
+    display: block;
   }
 
   .details-overlay {
