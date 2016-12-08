@@ -27,7 +27,7 @@
      */
 
     /**
-     * Use "controllerAs" syntax with a directive to be consistent with using controller as with view and controller pairings.
+     * Use 'controllerAs' syntax with a directive to be consistent with using controller as with view and controller pairings.
      *   https://github.com/johnpapa/angular-styleguide#style-y075
      */
 
@@ -39,8 +39,8 @@
       restrict: 'EA',
       templateUrl: 'app/directives/movie-item/movie-item.directive.html',
       scope: {
-        movie: "=",
-        showModal: "="
+        movie: '=',
+        showModal: '='
       },
       replace: true,
       controllerAs: 'vm',
@@ -59,25 +59,25 @@
 
     $scope.imgsSources = [
       {
-        category: "watchlist",
-        selected: "/images/watchlist-unselected.png",
-        unselected: "/images/watchlist-selected.png"
+        category: 'watchlist',
+        selected: '/images/watchlist-unselected.png',
+        unselected: '/images/watchlist-selected.png'
       },
       {
-        category: "seen",
-        selected: "/images/seen-unselected.png",
-        unselected: "/images/seen-selected.png"
+        category: 'seen',
+        selected: '/images/seen-unselected.png',
+        unselected: '/images/seen-selected.png'
       },
       {
-        category: "favorites",
-        selected: "/images/favorites-unselected.png",
-        unselected: "/images/favorites-selected.png"
+        category: 'favorites',
+        selected: '/images/favorites-unselected.png',
+        unselected: '/images/favorites-selected.png'
       },
       {
-        category: "rating",
-        selected: "/images/rating-empty-star.png",
-        unselectedNext: "/images/rating-half-star.png",
-        unselectedLast: "/images/rating-full-star.png"
+        category: 'rating',
+        selected: '/images/rating-empty-star.png',
+        unselectedNext: '/images/rating-half-star.png',
+        unselectedLast: '/images/rating-full-star.png'
       }
     ];
 
@@ -91,10 +91,10 @@
         image.selected = image.unselected;
         image.unselected = temp;
       }
-    }
+    };
 
     $scope.displayDetails = function displayDetails(){
       $scope.showModal = !$scope.showModal;
-    }
+    };
   }
 })();
