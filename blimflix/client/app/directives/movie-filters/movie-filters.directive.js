@@ -24,15 +24,17 @@
   }
 
   function MovieFiltersDirectiveController($scope) {
+
     $scope.$watch('movies.length',
-         function(newValue, oldValue){
+         function(){
            generateGenres();
            generateYears();
          }
      );
 
-     var allGenres=[], allYears=[];
+    var allGenres = [], allYears = [];
 
+<<<<<<< Updated upstream
     function generateGenres(){
         let array = [];
         if ($scope.movies) {
@@ -51,10 +53,29 @@
                 }
             }
         }
+=======
+    function generateGenres() {
+      for (let i = 0; i < $scope.movies.length; i++){
+      let array = $scope.movies[i].genre.split(', ');
+      if ( i === 0){
+        for (let j = 0; j < array.length; j++){
+          allGenres[allGenres.length] = array[j];
+        }
+      }
+      else{
+        for (let j = 0; j < array.length; j++){
+          if (allGenres.includes(array[j]) === false){
+            allGenres[allGenres.length] = array[j];
+          }
+        }
+      }
+    }
+>>>>>>> Stashed changes
     $scope.genres = allGenres;
   }
 
   function generateYears(){
+<<<<<<< Updated upstream
     if ($scope.movies) {
         for(let i=0;i<$scope.movies.length;i++){
            if(i===0){
@@ -67,30 +88,48 @@
            }
          }
          $scope.years = allYears;
+=======
+   for (let i = 0; i < $scope.movies.length; i++){
+      if (i === 0){
+          allYears[allYears.length] = $scope.movies[i].year;
+      }
+      else{
+        if(allYears.includes($scope.movies[i].year) === false){
+          allYears[allYears.length] = $scope.movies[i].year;
+        }
+      }
+>>>>>>> Stashed changes
     }
 
   }
 
-    $scope.genre=null;
-    $scope.year=null;
-    $scope.filtered=$scope.movies;
+    $scope.genre = null;
+    $scope.year = null;
+    $scope.filtered = $scope.movies;
 
     $scope.filterMovies = function() {
       function matchGenre(movie) {
+<<<<<<< Updated upstream
       let arrayOfGenres=movie.genre.split(', ');
         for(let i=0;i<arrayOfGenres.length;i++){
           if(arrayOfGenres[i]===$scope.genre){
+=======
+      let arrayOfGenres = movie.genre.split(', ');
+        for (let i = 0; i < arrayOfGenres.length; i++){
+          if (arrayOfGenres[i] === $scope.genre){
+>>>>>>> Stashed changes
             return movie;
           }
         }
       }
 
       function matchYear(movie){
-        if(movie.year===$scope.year){
+        if (movie.year === $scope.year){
           return movie;
         }
       }
 
+<<<<<<< Updated upstream
       if(($scope.genre)===null && ($scope.year)===null){
         $scope.title='All movies';
         $scope.filtered=$scope.movies;
@@ -101,38 +140,44 @@
           $scope.filtered=$scope.movies.filter(matchYear);
           $scope.title='Movies from '+$scope.year;
           $scope.qty=$scope.filtered.length;
+=======
+      if (($scope.genre) === null && ($scope.year) === null){
+        $scope.title = 'All movies';
+        $scope.filtered = $scope.movies;
+      }
+      else{
+        if (($scope.genre) === null){
+          $scope.filtered = $scope.movies.filter(matchYear);
+          $scope.title = 'Movies from '+$scope.year;
+>>>>>>> Stashed changes
           console.log($scope.filtered);
         }
         else{
-          if(($scope.year)===null){
-            $scope.filtered=$scope.movies.filter(matchGenre);
-            $scope.title=$scope.genre+" movies";
-            $scope.qty=$scope.filtered.length;
+          if (($scope.year) === null){
+            $scope.filtered = $scope.movies.filter(matchGenre);
+            $scope.title = $scope.genre+' movies';
             console.log($scope.filtered);
           }
           else{
-            $scope.filtered=$scope.movies.filter(matchGenre);
-            $scope.filtered=$scope.filtered.filter(matchYear);
-            $scope.title=$scope.genre+" movies from "+$scope.year;
-            $scope.qty=$scope.filtered.length;
+            $scope.filtered = $scope.movies.filter(matchGenre);
+            $scope.filtered = $scope.filtered.filter(matchYear);
+            $scope.title = $scope.genre + ' movies from ' + $scope.year;
             console.log($scope.filtered);
-
           }
         }
       }
-    }
+    };
 
-    $scope.search=function(name){
+    $scope.search = function(name){
       function matchName(movie){
-        let movieTitle=movie.title.toLowerCase();
-        name=name.toLowerCase();
-        if(movieTitle.includes(name)===true){
+        let movieTitle = movie.title.toLowerCase();
+        name = name.toLowerCase();
+        if (movieTitle.includes(name) === true){
           return movie;
         }
       }
-      $scope.title="Results with "+"'"+name+"'";
-      $scope.filtered=$scope.movies.filter(matchName);
-      $scope.qty=$scope.filtered.length;
-    }
+      $scope.title='Results with ' + '"' + name + '"';
+      $scope.filtered = $scope.movies.filter(matchName);
+    };
   }
 })();
