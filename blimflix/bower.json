@@ -8,7 +8,7 @@
     "bower_components"
   ],
   "dependencies": {
-    "angular": "~1.5",
+    "angular": "^1.5",
     "bootstrap-sass-official": "~3.3.4",
     "angular-bootstrap": "~0.13.0",
     "font-awesome": "~4.0",
