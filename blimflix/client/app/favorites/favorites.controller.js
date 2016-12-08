@@ -27,9 +27,12 @@
     /* jshint validthis: true */
     var vm = this;
     var foo = favorites.query({user_id: 1});
-    var filteredFav = [];
+    vm.filteredFav = [];
+
     foo.$promise.then(function (data) {
+        // vm.fav = [];
         vm.fav = data;
+        console.log(vm.fav);
     })
     // console.log(foo);
     console.log("HOla mundo");
