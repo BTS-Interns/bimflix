@@ -26,7 +26,16 @@
      */
     /* jshint validthis: true */
     var vm = this;
+    var foo = favorites.query({user_id: 1});
+    vm.filteredFav = [];
 
+    foo.$promise.then(function (data) {
+        // vm.fav = [];
+        vm.fav = data;
+        console.log(vm.fav);
+    })
+    // console.log(foo);
+    console.log("HOla mundo");
     /**
      * Bindable vm.* members (in alphabetical order)
      *   All variables here should be part of the vm object and not bound to `this`

@@ -38,7 +38,10 @@
     var directive = {
       restrict: 'EA',
       templateUrl: 'app/directives/movie-details/movie-details.directive.html',
-      scope: {},
+      scope: {
+          movie: "=",
+          showModal: "@"
+      },
       controllerAs: 'vm',
       controller: ['$scope', '$modal', MovieDetailsDirectiveController],
       replace: true
@@ -53,21 +56,7 @@
    */
   /* @ngInject */
   function MovieDetailsDirectiveController($scope, $modal) {
-    // $scope.movie = {
-    //     'movieID': 9,
-    //     'title': 'The Matrix',
-    //     'year': 1999,
-    //     'genre': 'Action, Sci-Fi',
-    //     'director': 'Lana Wachowski, Lilly Wachowski',
-    //     'writer': 'Lilly Wachowski, Lana Wachowski',
-    //     'actors': 'Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving',
-    //     'plot': 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.',
-    //     'language': 'English',
-    //     'country': 'USA',
-    //     'poster': 'https://images-na.ssl-images-amazon.com/images/M/MV5BMDMyMmQ5YzgtYWMxOC00OTU0LWIwZjEtZWUwYTY5MjVkZjhhXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg',
-    //     'created_at': '0000-00-00 00:00:00',
-    //     'updated_at': '0000-00-00 00:00:00'
-    // };
+      
   }
 })();
 

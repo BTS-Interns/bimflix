@@ -15,6 +15,7 @@
         movies: '=',
         filtered: '='
       },
+      replace: true,
       controllerAs: 'vm',
       link: MovieFiltersDirectiveController
     };
@@ -33,36 +34,41 @@
      var allGenres=[], allYears=[];
 
     function generateGenres(){
-      for(let i=0;i<$scope.movies.length;i++){
-      let array=$scope.movies[i].genre.split(", ");
-      if(i===0){
-        for(let j=0;j<array.length;j++){
-          allGenres[allGenres.length]=array[j];
+        let array = [];
+        if ($scope.movies) {
+            for(let i=0;i<$scope.movies.length;i++){
+                array = $scope.movies[i].genre.split(', ');
+                if(i===0) {
+                    for(let j=0;j<array.length;j++){
+                        allGenres[allGenres.length]=array[j];
+                    }
+                } else {
+                    for(let j=0;j<array.length;j++){
+                        if(allGenres.includes(array[j])===false) {
+                            allGenres[allGenres.length]=array[j];
+                        }
+                    }
+                }
+            }
         }
-      }
-      else{
-        for(let j=0;j<array.length;j++){
-          if(allGenres.includes(array[j])===false){
-            allGenres[allGenres.length]=array[j];
-          }
-        }
-      }
-    }
     $scope.genres = allGenres;
   }
 
   function generateYears(){
-   for(let i=0;i<$scope.movies.length;i++){
-      if(i===0){
-          allYears[allYears.length]=$scope.movies[i].year;
-      }
-      else{
-        if(allYears.includes($scope.movies[i].year)===false){
-          allYears[allYears.length]=$scope.movies[i].year;
-        }
-      }
+    if ($scope.movies) {
+        for(let i=0;i<$scope.movies.length;i++){
+           if(i===0){
+               allYears[allYears.length]=$scope.movies[i].year;
+           }
+           else{
+             if(allYears.includes($scope.movies[i].year)===false){
+               allYears[allYears.length]=$scope.movies[i].year;
+             }
+           }
+         }
+         $scope.years = allYears;
     }
-    $scope.years = allYears;
+
   }
 
     $scope.genre=null;
@@ -71,7 +77,7 @@
 
     $scope.filterMovies = function() {
       function matchGenre(movie) {
-      let arrayOfGenres=movie.genre.split(", ");
+      let arrayOfGenres=movie.genre.split(', ');
         for(let i=0;i<arrayOfGenres.length;i++){
           if(arrayOfGenres[i]===$scope.genre){
             return movie;
@@ -86,14 +92,14 @@
       }
 
       if(($scope.genre)===null && ($scope.year)===null){
-        $scope.title="All movies";
+        $scope.title='All movies';
         $scope.filtered=$scope.movies;
         $scope.qty=$scope.filtered.length;
       }
       else{
         if(($scope.genre)===null){
           $scope.filtered=$scope.movies.filter(matchYear);
-          $scope.title="Movies from "+$scope.year;
+          $scope.title='Movies from '+$scope.year;
           $scope.qty=$scope.filtered.length;
           console.log($scope.filtered);
         }

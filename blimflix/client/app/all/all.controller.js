@@ -28,7 +28,7 @@
 
     $scope.movies = moviesFactory.query();
     $scope.filteredMovies = [];
-
+    $scope.showModal = false;
     activate();
 
     function activate() {
