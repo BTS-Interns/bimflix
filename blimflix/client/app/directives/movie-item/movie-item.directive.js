@@ -38,7 +38,9 @@
     var directive = {
       restrict: 'EA',
       templateUrl: 'app/directives/movie-item/movie-item.directive.html',
-      scope: {},
+      scope: {
+        movie: "="
+      },
       replace: true,
       controllerAs: 'vm',
       controller: ['$scope', MovieItemDirectiveController],
@@ -53,21 +55,6 @@
    */
   /* @ngInject */
   function MovieItemDirectiveController($scope) {
-    $scope.movieItem = {
-      "movieID": 1,
-      "title": "Almost Famous",
-      "year": 2000,
-      "genre": "Adventure, Comedy, Drama",
-      "director": "Cameron Crowe",
-      "writer": "Cameron Crowe",
-      "actors": "Billy Crudup, Frances McDormand, Kate Hudson, Jason Lee",
-      "plot": "A high-school boy is given the chance to write a story for Rolling Stone Magazine about an up-and-coming rock band as he accompanies it on their concert tour.",
-      "language": "English, French",
-      "country": "USA",
-      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMzY1ZjMwMGEtYTY1ZS00ZDllLTk0ZmUtYzA3ZTA4NmYwNGNkXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SX300.jpg",
-      "created_at": "0000-00-00 00:00:00",
-      "updated_at": "0000-00-00 00:00:00"
-    };
 
     $scope.imgsSources = [
       {
