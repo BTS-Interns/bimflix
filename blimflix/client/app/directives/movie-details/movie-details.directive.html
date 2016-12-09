@@ -1,67 +1,44 @@
-<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-show="showModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-
-      <div class="modal-body row">
-
+<div class="modal-header">
+    <h4 class="modal-title">Movie details</h4>
+</div>
+<div class="modal-body clearfix">
+  <div class="col-md-4 poster" ng-style="{'background-image':'url({{movie.poster}})'}"></div>
+  <div class="col-md-7 info">
+    <div class="row">
+        <div class="col-md-6">
+            <h4 class="name">{{movie.title}} <sup>({{movie.year}})</sup></h4>
+        </div>
+        <div class="col-md-6 rank"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h6 class="details">{{movie.genre}}  |  {{movie.country}}  |  {{movie.language}}</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>{{movie.plot}}</p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 staff">
+          <h6>Writer</h6>
+          <p>{{movie.writer}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 staff">
+          <h6>Director</h6>
+          <p>{{movie.director}}</p>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 staff">
+        <h6>Actors</h6>
+        <p>{{movie.actors}}</p>
       </div>
     </div>
   </div>
-</div> -->
-        <div class="modal-header">
-            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button> -->
-            <h4 class="modal-title">Movie details</h4>
-        </div>
-        <div class="modal-body clearfix">
-          <div class="col-md-4 poster" ng-style="{'background-image':'url({{movie.poster}})'}"></div>
-          <div class="col-md-7 info">
-            <div class="row">
-                <div class="col-md-6">
-                    <h4 class="name">{{movie.title}} <sup>({{movie.year}})</sup></h4>
-                </div>
-                <div class="col-md-6 rank"></div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <h6 class="details">{{movie.genre}}  |  {{movie.country}}  |  {{movie.language}}</h6>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <p>{{movie.plot}}</p>
-              </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 staff">
-                  <h6>Writer</h6>
-                  <p>{{movie.writer}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 staff">
-                  <h6>Director</h6>
-                  <p>{{movie.director}}</p>
-                </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12 staff">
-                <h6>Actors</h6>
-                <p>{{movie.actors}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-            <!-- <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button> -->
-        </div>
-    <!-- <script type="text/ng-template" id="stackedModal.html">
-        <div class="modal-header">
-            <h3 class="modal-title" id="modal-title-{{name}}">The {{name}} modal!</h3>
-        </div>
-        <div class="modal-body" id="modal-body-{{name}}">
-            Having multiple modals open at once is probably bad UX but it's technically possible.
-        </div>
-    </script> -->
+</div>
+<div class="modal-footer">
+</div>

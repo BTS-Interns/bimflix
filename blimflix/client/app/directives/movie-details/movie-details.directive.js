@@ -37,7 +37,6 @@
      */
     var directive = {
       restrict: 'EA',
-      // templateUrl: 'app/directives/movie-details/movie-details.directive.html',
       scope: {
           movie: '='
       },
@@ -58,7 +57,7 @@
     $scope.showModal = function showModal() {
       $modal.open({
         size: 'sm',
-        templateUrl: 'app/directives/movie-details/movie-details.directive.html',
+        templateUrl: 'app/directives/movie-details/movie-details.directive.html'
       });
     };
   }
