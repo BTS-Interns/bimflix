@@ -17,14 +17,12 @@
       vm.seenMovies = data;
     });
 
+    vm.showModal = false;
+
     vm.activate = activate;
-
     activate();
-
     function activate() {
-
     }
-
   }
 
 })();
