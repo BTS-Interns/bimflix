@@ -1,18 +1,22 @@
 .movie-item-poster {
-  position: relative;
+  margin: 10px;
+  height: 230px;
+  padding: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
 
-  &:hover + .details-overlay {
+  // display: inline-block;
+  &:hover > .details-overlay {
     display: block;
   }
 
   .details-overlay {
-    position: absolute;
+    position: relative;
+    width: 100%;
     display: none;
-    top: 0;
-    bottom: 0;
-    left: 15px;
-    right: 15px;
     background-color: rgba(0, 0, 0, 0.75);
+    margin: 0;
+    height: inherit;
 
     &:hover {
       display: block;
@@ -26,7 +30,7 @@
     img {
       width: 15%;
       height: auto;
-      margin-left: 6.7%;
+      margin-left: 13%;
     }
 
   }
