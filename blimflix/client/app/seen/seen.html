@@ -1,1 +1,2 @@
-<h1>Movies I’ve seen (23)</h1>
+<movie-filters title = "Movies Seen" movies = "vm.seenMovies" filtered = "vm.seenMoviesArray"></movie-filters>
+<movie-item ng-repeat = "movie in vm.seenMoviesArray" movie = "movie" showModal="vm.showModal"></movie-item>
