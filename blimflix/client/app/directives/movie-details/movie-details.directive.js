@@ -57,7 +57,7 @@
     $scope.showModal = function showModal() {
       $modal.open({
         size: 'sm',
-        templateUrl: 'app/directives/movie-details/movie-details.directive.html'
+        templateUrl: 'app/directives/movie-details/movie-details.directive.html',
       });
     };
   }
