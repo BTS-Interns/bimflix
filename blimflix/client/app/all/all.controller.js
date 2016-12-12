@@ -25,7 +25,7 @@
     var vm = this;
 
     vm.activate = activate;
-
+    
     $scope.movies = moviesFactory.query();
     $scope.filteredMovies = [];
     $scope.showModal = false;

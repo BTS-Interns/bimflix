@@ -16,19 +16,16 @@
    */
   /* @ngInject */
   function navigation($resource) {
-    /**
-     * Accessible members at top
-     *   https://github.com/johnpapa/angular-styleguide#style-y052
-     */
-     return $resource('http://localhost:3333/users/:id/navigation',
-      { id:'@id' },
-      { 'query' :
-        {
-          method: 'GET'
-        },
-      });
-
-    ////////////
-
+  /**
+   * Accessible members at top
+   *   https://github.com/johnpapa/angular-styleguide#style-y052
+   */
+   return $resource('http://localhost:3333/users/:id/navigation',
+    { id:'@id' },
+    { 'query' :
+      {
+        method: 'GET'
+      },
+    });
   }
 })();

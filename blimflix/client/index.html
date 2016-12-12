@@ -25,20 +25,35 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <!-- It's up to you if you want to comment your HTML code,
+         but be prescise, secure and to the point if you decide to. -->
     <div class="wrapper">
-      <topbar></topbar>
 
+      <!-- The following indentation style, gives you an eagle's view
+           on the application' semantics: Very verbose but it's ok because it's a root element-->
+
+      <!-- Topbar navigation -->
+      <topbar navigation="navItems"></topbar> <!-- Now there's a differentiation between the factofy 'navigation'
+        and the actual navigation items. -->
+
+      <!-- Main Page -->
       <div class="page-wrapper">
-        <div class="col-md-3 sidebar-wrapper">
-          <user-card></user-card>
-          <side-bar></side-bar>
 
+        <!-- Sidebar -->
+        <div class="col-md-3 sidebar-wrapper">
+
+          <!-- User's card -->
+          <user-card user="user"></user-card>
+
+          <!-- Side navigation -->
+          <side-bar navigation="navItems"></side-bar>
         </div>
+
+        <!-- Dynamic view -->
         <div class="col-md-9 content-wrapper">
-          <div ng-view>
-            
-          </div>
+          <div ng-view></div> <!-- You can comment, but no need to indent an empty tag -->
         </div>
+
       </div>
     </div>
 

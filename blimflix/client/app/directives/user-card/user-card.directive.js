@@ -9,7 +9,9 @@
     var directive = {
       restrict: 'EA',
       templateUrl: 'app/directives/user-card/user-card.directive.html',
-      scope: {},
+      scope: {
+        user: "="
+      },
       controllerAs: 'vm',
       controller: ["$scope", UserCardDirectiveController]
     };
@@ -18,6 +20,6 @@
   }
 
   function UserCardDirectiveController($scope) {
-    $scope.user = {id: 0, username: 'manuelr', email: 'manuelr@vsisoft.com', avatar: './images/user.jpg'};
+    
   }
 })();

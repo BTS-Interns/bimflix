@@ -29,10 +29,45 @@
     var vm = this;
     vm.activate = activate;
 
+    /* Now that you called 'navigation' to your factory, you won't
+       be able to name a variable like that here: */
     navigation.query({id : 1}).$promise.then(
       function(data){
-      $scope.navigation = data.navigation;
-      console.log($scope.navigation);
+
+        /* Then, what entity are you refering to, from the view when you call navigation?
+           The factory 'navigation' or the scope variable called 'navigation'? */
+        $scope.navItems = data.navigation;
+        console.log($scope.navItems);
+    });
+
+    /* @Here:
+     *
+     * Don't forget to comment your code!
+     * ---------------------------------- */
+
+    /* Queries the user's data and stores it in the Scope.
+     * ---------------------------------------------------*/
+    users.query({id : 1}).$promise.then(
+
+      /* Proscesses the promise's fulfillment scenario.
+       *
+       * A callback that gets the factory's response
+       * into  a variable called data.
+       */
+      function(data){
+
+        // Store the 'user' object of data into scope
+        $scope.user = data[0]; // In your factory you say it's an array response
+
+        // log data for debugging
+        console.log(' '); //  <-- Here some tips for console logging:
+        console.log('/*------------------------------*/');
+        console.log(' * Respuesta de user:', data[0]);
+        console.log('/*------------------------------*/');
+        console.log(' ');
+
+        // Whatever comes next ...
+
     });
     /**
      * Bindable vm.* members (in alphabetical order)

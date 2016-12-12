@@ -38,7 +38,9 @@
     var directive = {
       restrict: 'EA',
       templateUrl: 'app/directives/topbar/topbar.directive.html',
-      scope: {},
+      scope: {
+        navigation: '='
+      },
       controllerAs: 'vm',
       controller: ["$scope", TopbarDirectiveController],
       replace: true
@@ -53,31 +55,11 @@
    */
   /* @ngInject */
   function TopbarDirectiveController($scope) {
-    $scope.sections = [
-      {
-		    index: 0,
-		    title: "All Movies",
-		    count: 30,
-		    Url: "/all"
-   	  },
-      {
-		    index: 1,
-		    title: "Seen",
-		    count: 13,
-		    Url: "/seen"
-   	  },
-      {
-		    index: 2,
-		    title: "Favorites",
-		    count: 8,
-		    Url: "/favorites"
-   	  },
-      {
-		    index: 3,
-		    title: "Watchlist",
-		    count: 19,
-		    Url: "/watchlist"
-   	  }
-    ];
+    $scope.$watch('navigation.length',
+      function(oldValue, newValue){
+        console.log($scope.navigation);
+        $scope.sections = $scope.navigation;
+      }
+    );
   }
 })();

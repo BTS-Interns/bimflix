@@ -21,7 +21,7 @@
      *   https://github.com/johnpapa/angular-styleguide#style-y052
      */
     return $resource('http://localhost:3333/users/:id',{id:'@id', username: '@username', email: '@email', password: '@password', avatar: '@avatar'}, {
-        'query' : { method: 'GET', isArray: true },
+        'query' : { method: 'GET', isArray: true }, // <--- here.
         'save'  : { method: 'POST' }
     });
 
