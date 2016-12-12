@@ -1,2 +1,2 @@
 <movie-filters title="My favorite movies" movies="vm.fav"  filtered="vm.filteredFav"></movie-filters>
-<movie-item movie="movie" ng-repeat="movie in filteredFav"></movie-item>
+<movie-item ng-repeat="movie in vm.filteredFav" movie="movie" showModal="vm.showModal"></movie-item>
