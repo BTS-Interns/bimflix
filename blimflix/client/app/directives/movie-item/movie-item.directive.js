@@ -39,12 +39,11 @@
       restrict: 'EA',
       templateUrl: 'app/directives/movie-item/movie-item.directive.html',
       scope: {
-        movie: '=',
-        showModal: '='
+        movie: '='
       },
       replace: true,
       controllerAs: 'vm',
-      controller: ['$scope', MovieItemDirectiveController],
+      controller: ['$scope', '$modal', MovieItemDirectiveController],
     };
 
     return directive;
@@ -55,46 +54,68 @@
    *  https://github.com/johnpapa/angular-styleguide#style-y100
    */
   /* @ngInject */
-  function MovieItemDirectiveController($scope) {console.log('Display details');
-
+  function MovieItemDirectiveController($scope, $modal) {
+    $scope.showModal = false;
     $scope.imgsSources = [
       {
         category: 'watchlist',
-        selected: '/images/watchlist-unselected.png',
-        unselected: '/images/watchlist-selected.png'
+        selected: false,
+        painted: '/images/watchlist-selected.png',
+        unpainted: '/images/watchlist-unselected.png',
+        current: '/images/watchlist-unselected.png'
       },
       {
         category: 'seen',
-        selected: '/images/seen-unselected.png',
-        unselected: '/images/seen-selected.png'
+        selected: false,
+        painted: '/images/seen-selected.png',
+        unpainted: '/images/seen-unselected.png',
+        current: '/images/seen-unselected.png'
       },
       {
         category: 'favorites',
-        selected: '/images/favorites-unselected.png',
-        unselected: '/images/favorites-selected.png'
-      },
-      {
-        category: 'rating',
-        selected: '/images/rating-empty-star.png',
-        unselectedNext: '/images/rating-half-star.png',
-        unselectedLast: '/images/rating-full-star.png'
+        selected: false,
+        painted: '/images/favorites-selected.png',
+        unpainted: '/images/favorites-unselected.png',
+        current: '/images/favorites-unselected.png'
       }
     ];
 
-    $scope.selectCategory = function selectCategory(image){
-      let temp = image.selected;
-      if( Object.keys(image).length === 5 ){
-        image.selected = image.unselectedNext;
-        image.unselectedNext = image.unselectedLast;
-        image.unselectedLast = temp;
-      } else {
-        image.selected = image.unselected;
-        image.unselected = temp;
+    $scope.mouseOverCategory = function mouseOverCategory (image) {
+      image.current = image.painted;
+    };
+
+    $scope.mouseLeaveCategory = function mouseLeaveCategory (image) {
+      if (!image.selected && image.current === image.painted) {
+        image.current = image.unpainted;
       }
     };
 
+    $scope.selectCategory = function selectCategory(image){
+      if (image.selected) {
+        if (image.current === image.unpainted) {
+          image.selected = false;
+        } else {
+          image.current = image.unpainted;
+          image.selected = false;
+        }
+      } else {
+        if (image.current === image.painted) {
+          image.selected = true;
+        } else {
+          image.current = image.painted;
+          image.selected = true;
+        }
+      }
+    };
+
+    $scope.posterStyle = { 'background-image' : 'url(' + $scope.movie.poster + ')'};
+
     $scope.displayDetails = function displayDetails(){
-      $scope.showModal = !$scope.showModal;
+      $modal.open({
+        size: 'md',
+        templateUrl: 'app/directives/movie-details/movie-details.directive.html',
+        scope: $scope
+      });
     };
   }
 })();
