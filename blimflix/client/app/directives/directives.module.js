@@ -4,5 +4,5 @@
 (function () {
   'use strict';
 
-  angular.module('blimBlix.directives', []);
+  angular.module('blimFlix.directives', ['ui.bootstrap']);
 })();

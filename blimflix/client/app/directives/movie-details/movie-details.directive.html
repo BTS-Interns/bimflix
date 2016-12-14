@@ -1,0 +1,44 @@
+<div class="modal-header">
+    <h4 class="modal-title">Movie details</h4>
+</div>
+<div class="modal-body clearfix">
+  <div class="col-md-4 poster" ng-style="{'background-image':'url({{movie.poster}})'}"></div>
+  <div class="col-md-7 info">
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="name">{{movie.title}} <sup>({{movie.year}})</sup></h4>
+        </div>
+        <div class="col-md-0 rank"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h6 class="details">{{movie.genre}}  |  {{movie.country}}  |  {{movie.language}}</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>{{movie.plot}}</p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 staff">
+          <h6>Writer</h6>
+          <p>{{movie.writer}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 staff">
+          <h6>Director</h6>
+          <p>{{movie.director}}</p>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 staff">
+        <h6>Actors</h6>
+        <p>{{movie.actors}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+</div>

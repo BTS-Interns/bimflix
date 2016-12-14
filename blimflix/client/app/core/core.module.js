@@ -9,16 +9,16 @@
    * Move reused dependencies into separate core app module
    *   https://github.com/johnpapa/angular-styleguide#style-y165
    */
-  angular.module('blimBlix.core', [
+  angular.module('blimFlix.core', [
       'ui.bootstrap',
       'ngRoute',
-    'blimBlix.directives',
-    'blimBlix.filters',
-    'blimBlix.providers'
+    'blimFlix.directives',
+    'blimFlix.filters',
+    'blimFlix.providers'
   ]);
 
   angular
-    .module('blimBlix')
+    .module('blimFlix')
     .config(configure)
     .run(runBlock);
 

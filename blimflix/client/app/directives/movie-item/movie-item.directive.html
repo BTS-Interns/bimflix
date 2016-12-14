@@ -1,0 +1,20 @@
+<div class="col-md-2 movie-item-poster" ng-style="posterStyle">
+  <div class="details-overlay">
+    <div class="displayer" ng-click="displayDetails()"></div>
+    <img ng-mouseover="mouseOverCategory(imgsSources[0])"
+         ng-mouseleave="mouseLeaveCategory(imgsSources[0])"
+         ng-click="selectCategory(imgsSources[0], 'click')"
+         ng-src="{{imgsSources[0].current}}"
+         alt="{{imgsSources[0].category}}" />
+    <img ng-mouseover="mouseOverCategory(imgsSources[1])"
+         ng-mouseleave="mouseLeaveCategory(imgsSources[1])"
+         ng-click="selectCategory(imgsSources[1], 'click')"
+         ng-src="{{imgsSources[1].current}}"
+         alt="{{imgsSources[1].category}}" />
+    <img ng-mouseover="mouseOverCategory(imgsSources[2])"
+         ng-mouseleave="mouseLeaveCategory(imgsSources[2])"
+         ng-click="selectCategory(imgsSources[2], 'click')"
+         ng-src="{{imgsSources[2].current}}"
+         alt="{{imgsSources[2].category}}" />
+  </div>
+</div>

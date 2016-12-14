@@ -1,0 +1,9 @@
+<movie-filters title="My watchlist" movies="vm.movies" filtered="vm.filteredMovies"></movie-filters>
+
+<div ng-if="vm.filteredMovies.length">
+  <movie-item movie="movie" ng-repeat="movie in vm.filteredMovies"><movie-item>
+</div>
+
+<div ng-if="!vm.filteredMovies.length">
+  <div class="col-md-12">No movies found.</div>
+</div>

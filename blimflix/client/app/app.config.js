@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('blimBlix').config(config);
+  angular.module('blimFlix').config(config);
 
   /* @ngInject */
   function config($provide) {
