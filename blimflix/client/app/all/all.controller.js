@@ -22,17 +22,9 @@
      */
     /* jshint validthis: true */
 
-    var vm = this;
-
-    vm.activate = activate;
+    //var vm = this;
 
     $scope.movies = moviesFactory.query();
     $scope.filteredMovies = [];
-    $scope.showModal = false;
-    activate();
-
-    function activate() {
-      console.log($scope.movies);
-    }
   }
 })();
