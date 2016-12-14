@@ -25,27 +25,29 @@
 
   function MovieFiltersDirectiveController($scope) {
 
-    $scope.$watch('movies.length',
-      function(){
-        generateGenres();
-        generateYears();
-      }
-    );
-
     var allGenres = [], allYears = [];
 
+    function watchLink(){
+      generateGenres();
+      generateYears();
+    };
+
     function generateGenres() {
-      for (let i = 0; i < $scope.movies.length; i++){
-        let array = $scope.movies[i].genre.split(', ');
-        if ( i === 0) {
-          for (let j = 0; j < array.length; j++){
-            allGenres[allGenres.length] = array[j];
-          }
-        }
-        else{
-          for (let j = 0; j < array.length; j++){
-            if (allGenres.includes(array[j]) === false){
+
+      // Do not process if no movies in array
+      if ($scope.movies) {
+        for (let i = 0; i < $scope.movies.length; i++){
+          let array = $scope.movies[i].genre.split(', ');
+          if ( i === 0) {
+            for (let j = 0; j < array.length; j++){
               allGenres[allGenres.length] = array[j];
+            }
+          }
+          else{
+            for (let j = 0; j < array.length; j++){
+              if (allGenres.includes(array[j]) === false){
+                allGenres[allGenres.length] = array[j];
+              }
             }
           }
         }
@@ -136,5 +138,7 @@
       $scope.title='Results with ' + '"' + name + '"';
       $scope.filtered = $scope.movies.filter(matchName);
     };
+
+    $scope.$watchCollection('movies', watchLink, true);
   }
 })();

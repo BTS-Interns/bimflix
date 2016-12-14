@@ -37,7 +37,6 @@
         /* Then, what entity are you refering to, from the view when you call navigation?
            The factory 'navigation' or the scope variable called 'navigation'? */
         $scope.navItems = data.navigation;
-        console.log($scope.navItems);
     });
 
     /* @Here:
@@ -58,15 +57,6 @@
 
         // Store the 'user' object of data into scope
         $scope.user = data[0]; // In your factory you say it's an array response
-
-        // log data for debugging
-        console.log(' '); //  <-- Here some tips for console logging:
-        console.log('/*------------------------------*/');
-        console.log(' * Respuesta de user:', data[0]);
-        console.log('/*------------------------------*/');
-        console.log(' ');
-
-        // Whatever comes next ...
 
     });
     /**

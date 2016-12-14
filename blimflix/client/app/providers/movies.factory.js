@@ -22,27 +22,7 @@
      *   https://github.com/johnpapa/angular-styleguide#style-y052
      */
      return $resource("http://localhost:3333/movies", {}, {
-        get: {},
-        save: {},
-        remove: {},
-        delete: {},
-        query:  {
-          method: 'GET',
-          isArray: true,
-          transformResponse: function(data){
-            try {
-              data = JSON.parse(data);
-
-              if(data && data.movies){
-                return data.movies;
-              }
-
-              return data;
-            } catch(e){
-              console.error("Oops ", e);
-            }
-          }
-        }
+        query:  { method: 'GET', isArray: false }
       });
   }
 })();

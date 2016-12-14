@@ -1,6 +1,7 @@
 <div class="container-filters">
   <p class="heading">{{title}} ({{filtered.length}})</p>
-  <form class="navbar-form" role="search">
+
+  <form class="navbar-form" role="search" ng-if="movies.length">
     <div class="input-group add-on">
       <input class="form-control" placeholder="Search" type="text" ng-model="name">
       <div class="input-group-btn">
@@ -12,7 +13,7 @@
     class="form-control"
     ng-change="filterMovies()"
     ng-model="genre"
-    ng-options="value for value in genres">
+    ng-options="value for value in genres"  ng-if="movies.length">
     <option value="">Select genre</option>
     <option></option>
   </select>
@@ -20,7 +21,7 @@
     class="form-control form-year"
     ng-change="filterMovies()"
     ng-model="year"
-    ng-options="value for value in years">
+    ng-options="value for value in years"  ng-if="movies.length">
     <option value="">Select year</option>
     <option></option>
   </select>

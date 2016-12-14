@@ -8,17 +8,18 @@
 
   function WatchlistController(watchlist) {
     var vm = this;
+    vm.movies = [];
+    vm.filteredMovies = [];
 
-    vm.filteredWatchlist = [];
-    var watchList = watchlist.query({id: 1});
-    watchList.$promise.then(function(data){
-      vm.watchlistArray = data;
+    var watchList = watchlist.query({id: 1}).$promise.then(function(data){
+      vm.movies = data;
+      vm.filteredMovies = data;
     });
-    vm.movie = {};
-    vm.showModal = false;
+
     vm.activate = activate;
+
+    function activate() {}
+
     activate();
-    function activate() {
-    }
   }
 })();

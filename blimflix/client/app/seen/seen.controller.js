@@ -9,12 +9,13 @@
   function SeenController(seen) {
 
     var vm = this;
-    vm.seenMoviesArray = [];
+    vm.filteredMovies = [];
     vm.seenMovies = [];
 
     //Get for seen movies
     seen.query({ id: 1 }).$promise.then(function (data) {
       vm.seenMovies = data;
+      vm.filteredMovies = data;
     });
 
     vm.showModal = false;

@@ -57,7 +57,6 @@
   function TopbarDirectiveController($scope) {
     $scope.$watch('navigation.length',
       function(oldValue, newValue){
-        console.log($scope.navigation);
         $scope.sections = $scope.navigation;
       }
     );
